@@ -1,0 +1,1 @@
+web: gunicorn UnalG6P67.wsgi
