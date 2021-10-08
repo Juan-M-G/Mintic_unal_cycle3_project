@@ -22,7 +22,7 @@ urlpatterns = [
     path('refresh/', TokenRefreshView.as_view()),
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
-    path('bill/', views.billCreateView.as_view()),
-    path('bill/<int:pk>/', views.billDetailView.as_view()),
+    path('bill/', views.BillCreateView.as_view()),
+    path('bill/<int:pk>/', views.BillDetailView.as_view()),
 
 ]
