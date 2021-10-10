@@ -7,4 +7,4 @@ class BillCreateView(views.APIView):
         serializer = BillSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        return Response(status=status.HTTP_201_CREATED)
+        return Response("Added new bill", status=status.HTTP_201_CREATED)
