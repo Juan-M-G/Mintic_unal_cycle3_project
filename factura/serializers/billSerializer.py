@@ -7,7 +7,8 @@ class BillSerializer(serializers.ModelSerializer):
 #    fac_prod = AccountSerializer()
     class Meta:
         model = Bill
-        fields = ['id_bill', 'client_name', 'purchase_Date', 'isActive', 'user_id']
+        fields = ['id_bill', 'client_name', 'purchase_Date', 'isActive', 'products', 'user_id']
+        #depth = 1
 #        fields = ['id_bill', 'client_name', 'purchase_Date', 'isActive', 'user_id', 'fac_prod']
 #    
 #    def create(self, validated_data):
