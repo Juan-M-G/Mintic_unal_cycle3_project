@@ -25,4 +25,4 @@ class BillCreateView(views.APIView):
             
             new_bill.products.add(product_obj)
         serializer = BillSerializer(new_bill)
-        return Response(serializer.data, product_obj.product_price)
+        return Response(product_obj.product_price)
