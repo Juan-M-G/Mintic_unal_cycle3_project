@@ -19,9 +19,9 @@ class BillCreateView(views.APIView):
     def post(self, request, *args, **kwargs):
         data = request.data
         new_bill = Bill.objects.create(client_name = data['client_name'], purchase_Date = data['purchase_Date'], isActive = data['isActive']  )
-        new_bill.save()
         data_obj = User.objects.get(user_id = data['user_id'])
         new_bill.user_id.add(data_obj)
+        new_bill.save()
         for pro in data['products']:
             product_obj = Product.objects.get(product_name = pro['product_name'])
             new_bill.products.add(product_obj)
