@@ -22,6 +22,7 @@ class BillCreateView(views.APIView):
         new_bill.save()
         for pro in data['products']:
             product_obj = Product.objects.get(product_name = pro['product_name'])
+            
             new_bill.products.add(product_obj)
         serializer = BillSerializer(new_bill)
-        return Response(serializer.data)
+        return Response(serializer.data, product_obj.product_price)
