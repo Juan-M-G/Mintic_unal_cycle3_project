@@ -12,15 +12,13 @@ class BillCreateView(views.APIView):
 #        return Response("Added new bill", status=status.HTTP_201_CREATED)
 
 #from django.contrib.auth.models import User
-#user = User.objects.get(id=user_id)
 
 #staffprofile.user = user
 
     def post(self, request, *args, **kwargs):
         data = request.data
-        new_bill = Bill.objects.create(client_name = data['client_name'], purchase_Date = data['purchase_Date'], isActive = data['isActive']  )
-        data_obj = User.objects.get(user_id = data['user_id'])
-        new_bill.user_id.add(data_obj)
+        new_bill = Bill.objects.create(client_name = data['client_name'], purchase_Date = data['purchase_Date'], isActive = data['isActive'],  id_user = User.objects.get(id='user_id'))
+        
         new_bill.save()
         for pro in data['products']:
             product_obj = Product.objects.get(product_name = pro['product_name'])
