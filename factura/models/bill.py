@@ -7,5 +7,6 @@ class Bill(models.Model):
     client_name = models.CharField('Client Name', max_length=30)
     purchase_Date = models.DateTimeField()
     isActive = models.BooleanField(default=True)
+    #Definition of ManyTomany Relation between bill and products tables, through Fact_Prod table.
     products = models.ManyToManyField(Product, related_name= 'products', through= 'Fact_prod')
     user_id = models.ForeignKey(User, related_name='bill', on_delete=models.CASCADE)
