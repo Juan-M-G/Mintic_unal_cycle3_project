@@ -9,6 +9,6 @@ class DailySellsDetailView(generics.RetrieveAPIView):
     def get(self, request, *args, **kwargs):
         queryset = Bill.objects.all()
         serializer_class = BillSerializer(queryset, many = True)
-        return Response(serializer_class)
+        return Response(serializer_class.data)
 
 
