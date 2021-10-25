@@ -1,4 +1,4 @@
-from factura.models import Bill, Fact_prod, User, Product
+from factura.models import Bill, Fact_prod, User
 from rest_framework import serializers
 
 
@@ -12,8 +12,8 @@ class BillSerializer(serializers.ModelSerializer):
         user = User.objects.get(id=obj.user_id)
         total_bill = 0
         for pro in obj.products:
-            product_obj = Product.objects.get(id_product = pro)
-            total_bill += product_obj.product_price        
+            product_obj = Fact_prod.objects.get(product_id = pro)
+            total_bill += product_obj.sub_total_price        
         return {
             'id_factura': bill.id_bill,
             'User': user.username,
