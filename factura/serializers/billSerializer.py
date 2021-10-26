@@ -12,13 +12,14 @@ class BillSerializer(serializers.ModelSerializer):
         bill = Bill.objects.get(id_bill=obj.id_bill)
         user = User.objects.get(username=obj.user_id)
         total_bill = 0
-        for pro in obj.products:
-            product_obj = Fact_prod.objects.get(product_id = pro)
-            total_bill += product_obj.sub_total_price        
+        #for pro in obj.products:
+         #   product_obj = Fact_prod.objects.get(product_id = pro)
+          #  total_bill += product_obj.sub_total_price        
         return {
             'id_factura': bill.id_bill,
             'User': user.id,
             'Client_name': bill.client_name,
             'purchase_Date': bill.purchase_Date,
-            'total_bill': total_bill
+            'total_bill': obj.products,
+            'test': obj
             }
