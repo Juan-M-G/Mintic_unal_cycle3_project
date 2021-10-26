@@ -8,18 +8,17 @@ class BillSerializer(serializers.ModelSerializer):
         fields = ['id_bill', 'client_name', 'purchase_Date', 'isActive', 'products', 'user_id']
     
     def to_representation(self, obj):
-        print(obj)
         bill = Bill.objects.get(id_bill=obj.id_bill)
         user = User.objects.get(username=obj.user_id)
+        prod = Fact_prod.objects.filter(bill_id = obj.id_bill)
         total_bill = 0
-        #for pro in obj.products:
-         #   product_obj = Fact_prod.objects.get(product_id = pro)
-          #  total_bill += product_obj.sub_total_price        
+        for pro in range(0, len(Fact_prod.objects.filter(bill_id = obj.id_bill))):
+            product_obj = prod[pro].sub_total_price
+            total_bill += product_obj        
         return {
             'id_factura': bill.id_bill,
             'User': user.id,
             'Client_name': bill.client_name,
             'purchase_Date': bill.purchase_Date,
-            'total_bill': obj.products,
-            'test': obj
+            'total_bill': total_bill
             }
