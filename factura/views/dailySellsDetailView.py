@@ -5,7 +5,8 @@ from factura.serializers.billSerializer import BillSerializer
 from rest_framework.permissions import IsAuthenticated
 
 class DailySellsDetailView(generics.RetrieveAPIView):
-    #permission_classes = (IsAuthenticated,)
+    #View that shows all sells across the get method redefined
+    permission_classes = (IsAuthenticated,)
     queryset = Bill.objects.all()
     def get(self, request, *args, **kwargs):
         bills = Bill.objects.all()
