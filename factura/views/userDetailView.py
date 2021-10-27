@@ -19,3 +19,11 @@ class UserDetailView(generics.RetrieveAPIView):
             stringResponse = {'detail':'Unauthorized Request'}
             return Response(stringResponse, status=status.HTTP_401_UNAUTHORIZED)
         return super().get(request, *args, **kwargs)
+    #Update feature applied to User table across PUT method, according to Rest_Framework
+    def put(self, request, pk = None):
+        user = User.objects.filter(id = pk).first()
+        user_serializer = UserSerializer(user, data = request.data)
+        if user_serializer.is_valid():
+            user_serializer.save()
+            return Response(user_serializer.data)
+        return Response(user_serializer.errors)
