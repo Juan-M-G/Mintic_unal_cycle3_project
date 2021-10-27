@@ -7,7 +7,7 @@ class BillSerializer(serializers.ModelSerializer):
         model = Bill
         fields = ['id_bill', 'client_name', 'purchase_Date', 'isActive', 'products', 'user_id']
     
-    #redefine to_representation method to show a summary of all sells
+    #redefine to_representation method to show a summary of all sales
     def to_representation(self, obj):
         bill = Bill.objects.get(id_bill=obj.id_bill)
         user = User.objects.get(username=obj.user_id)
