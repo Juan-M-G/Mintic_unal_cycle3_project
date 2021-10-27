@@ -23,6 +23,7 @@ urlpatterns = [
     path('user/', views.UserCreateView.as_view()),
     path('user/<int:pk>/', views.UserDetailView.as_view()),
     path('bill/', views.BillCreateView.as_view()),
+    path('dailysells/', views.DailySellsDetailView.as_view()),
     path('bill/<int:pk>/', views.BillDetailView.as_view()),
     path('product/', views.ProductCreateView.as_view()),
     path('product/<int:pk>/', views.ProductDetailView.as_view()),
