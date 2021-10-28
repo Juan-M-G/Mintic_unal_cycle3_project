@@ -7,4 +7,4 @@ from rest_framework.permissions import IsAuthenticated
 class BillDetailView(generics.RetrieveAPIView):
     queryset = Bill.objects.all()
     serializer_class = BillSerializer
-    permission_classes = (IsAuthenticated,)
+    #permission_classes = (IsAuthenticated,)

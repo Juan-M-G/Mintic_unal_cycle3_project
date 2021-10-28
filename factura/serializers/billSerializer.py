@@ -14,12 +14,13 @@ class BillSerializer(serializers.ModelSerializer):
         prod = Fact_prod.objects.filter(bill_id = obj.id_bill)
         total_bill = 0
         product_list = []
-        for pro in range(0, len(prod)):
-            prod2 = Product.objects.get(id_product = prod[pro].product_id)
+        for pro in range(0, len(Fact_prod.objects.filter(bill_id = obj.id_bill))):
+            prod2 = Product.objects.get(id_product = prod[pro].product_id.id_product)
             product_dic = {
                 "product_name": prod2.product_name,
-                "sub_total_price": prod[pro].product_amount,
-                "product_price": prod2.product_price
+                "product_amount": prod[pro].product_amount,
+                "product_price": prod2.product_price,
+                "sub_total_price": prod[pro].sub_total_price
             }
             product_list.append(product_dic)
             product_obj = prod[pro].sub_total_price
