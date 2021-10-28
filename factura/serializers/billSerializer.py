@@ -15,7 +15,7 @@ class BillSerializer(serializers.ModelSerializer):
         total_bill = 0
         product_list = []
         for pro in range(0, len(prod)):
-            prod2 = Product.objects.filter(id_product = prod[pro].product_id)
+            prod2 = Product.objects.get(id_product = prod[pro].product_id)
             product_dic = {
                 "product_name": prod2.product_name,
                 "sub_total_price": prod[pro].product_amount,
