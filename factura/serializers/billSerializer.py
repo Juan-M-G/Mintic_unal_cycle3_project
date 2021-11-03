@@ -26,10 +26,10 @@ class BillSerializer(serializers.ModelSerializer):
             product_obj = prod[pro].sub_total_price
             total_bill += product_obj        
         return {
-            'id_factura': bill.id_bill,
-            'User': user.id,
-            'Client_name': bill.client_name,
-            'purchase_Date': bill.purchase_Date,
-            'prodcuto': product_list,
+            'id_bill': bill.id_bill,
+            'user': user.name,
+            'client_name': bill.client_name,
+            'purchase_date': bill.purchase_Date,
+            'product': product_list,
             'total_bill': total_bill
             }
