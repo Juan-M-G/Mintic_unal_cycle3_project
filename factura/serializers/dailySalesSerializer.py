@@ -15,7 +15,7 @@ class DailySalesSerializer(serializers.ModelSerializer):
         total_bill = 0
         for pro in range(0, len(Fact_prod.objects.filter(bill_id = obj.id_bill))):
             product_obj = prod[pro].sub_total_price
-            total_bill += product_obj        
+            total_bill += product_obj
         return {
             'id_factura': bill.id_bill,
             'User': user.id,

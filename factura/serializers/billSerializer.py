@@ -24,7 +24,7 @@ class BillSerializer(serializers.ModelSerializer):
             }
             product_list.append(product_dic)
             product_obj = prod[pro].sub_total_price
-            total_bill += product_obj        
+            total_bill += product_obj
         return {
             'id_bill': bill.id_bill,
             'user': user.name,
