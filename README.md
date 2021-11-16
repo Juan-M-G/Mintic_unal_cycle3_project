@@ -28,7 +28,7 @@ This is a project made for MisionTic2022 program whit the National University. I
 |Unity_cost|
 |isActive|
 
-### Midd Table
+### Middle Table
 
 |**Bill_product**|
 |------------- |
