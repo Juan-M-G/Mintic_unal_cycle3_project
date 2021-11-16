@@ -2,7 +2,7 @@
 
 This is a project made for MisionTic2022 program whit the National University. It's about sales system for a shop (In this case a Icecream Shop), compose by the BackEnd developed on Django Rest Framework and connected to a PostgreSQL database.🧷
 
-##Model
+## Model
 
 | **Users** |
 |------------- |
@@ -38,7 +38,7 @@ This is a project made for MisionTic2022 program whit the National University. I
 |Amount|
 |Subtotal|
 
-#Features
+# Features
 
 1.  Usage of Auth Token.
 2. Create, update, and consult new users and products.
